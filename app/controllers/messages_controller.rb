@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: %i[ show edit update destroy ]
-  before_action :authenticate_admin!, except: [:create, :new, :confirmation, :location, :cfi, :home2]
+  before_action :authenticate_admin!, except: [:create, :new, :confirmation, :location, :cfi, :home3]
   invisible_captcha only: [:create], honeypot: :confirm_email
 
   # GET /messages or /messages.json
@@ -12,6 +12,10 @@ class MessagesController < ApplicationController
   end
 
   def home2
+    @message = Message.new
+  end
+
+  def home3
     @message = Message.new
   end
 
