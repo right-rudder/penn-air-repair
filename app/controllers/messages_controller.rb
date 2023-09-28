@@ -54,7 +54,7 @@ class MessagesController < ApplicationController
           #if !success
           #  @show_checkbox_recaptcha = true
           #end
-          render :home2, status: :unprocessable_entity  }
+          render :home3, status: :unprocessable_entity  }
         format.json { render json: @message.errors, status: :unprocessable_entity }
       end
     end
