@@ -46,7 +46,9 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save #&& (success || checkbox_success)
-        MessageConfirmationMailer.message_confirmation_email(@message).deliver_later
+        if Rails.env.production?
+          MessageConfirmationMailer.message_confirmation_email(@message).deliver_later
+        end
         format.html { redirect_to contact_confirmation_path, notice: @message.body }
         #format.json { render :show, status: :created, location: @message }
       else
