@@ -29,6 +29,21 @@
   </div>
 
   <div class="my-5">
+    <span>Aircraft Make</span>
+    <%= form.text_field :make, class: "placeholder:text-slate-300 block shadow rounded-md border border-slate-200 outline-none px-3 py-2 mt-2 w-full focus:border-neutral-400 focus:ring-neutral-400" %>
+  </div>
+
+  <div class="my-5">
+    <span>Aircraft Model</span>
+    <%= form.text_field :model, class: "placeholder:text-slate-300 block shadow rounded-md border border-slate-200 outline-none px-3 py-2 mt-2 w-full focus:border-neutral-400 focus:ring-neutral-400" %>
+  </div>
+
+  <div class="my-5">
+    <span>Aircraft N-Number</span>
+    <%= form.text_field :n_nummber, class: "placeholder:text-slate-300 block shadow rounded-md border border-slate-200 outline-none px-3 py-2 mt-2 w-full focus:border-neutral-400 focus:ring-neutral-400" %>
+  </div>
+
+  <div class="my-5">
     <%= form.label "How can we help?", class: "" %>
     <%= form.text_area :body, rows: 4, class: "block shadow rounded-md border border-slate-200 outline-none px-3 py-2 mt-2 w-full focus:border-neutral-400 focus:ring-neutral-400" %>
   </div>
