@@ -23,13 +23,20 @@
       <div class="flex items-center pb-20">
         <h2 class="px-3 text-xl font-semibold font-stretch-md">Over 30 years of maintenance and repair of general aviation and corporate Part 135 aviation</h2>
       </div>
-      <div class="grid grid-cols-2 lg:grid-cols-3 self-center place-items-center gap-12">
-        <%= image_tag "penn-air-cessna.webp", class: "lg:h-32 h-16", alt: "Cesssna Logo"%>
+      <div class="grid grid-cols-1 lg:grid-cols-5 self-center place-items-center gap-12">
+        <div class="hidden lg:block"></div>
+        <%= image_tag "penn-air-cessna.webp", class: "lg:h-32 h-52", alt: "Cesssna Logo"%>
         <%= image_tag "penn-air-piper.webp", class: "", alt: "Piper Logo"%>
         <%= image_tag "penn-air-beechcraft.webp", class: "", alt: "Beechcraft Logo"%>
+        <div class="hidden lg:block"></div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-4 self-center place-items-center gap-12 pt-10">
+        <div class="hidden lg:block"></div>
         <%= image_tag "penn-air-lycoming.webp", class: "", alt: "Lycoming Logo"%>
         <%= image_tag "penn-air-continental.webp", class: "", alt: "Continental Logo"%>
+        <div class="hidden lg:block"></div>
       </div>
+      
     </div>
   </div>
 </section>
