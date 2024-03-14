@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     get 'errors/internal_server_error'
     match "/404", to: "errors#not_found", via: :all
     match "/500", to: "errors#internal_server_error", via: :all
-  
+
   #devise_scope :admins do
   #  # Redirests signing out users back to sign-in
   #  get "admins", to: "devise/sessions#new"
@@ -15,10 +15,10 @@ Rails.application.routes.draw do
   #root "pages#home"
   root "messages#home3"
 
-  #post 'uploader/image', to: 'uploader#image' #add upload image to posts 
+  #post 'uploader/image', to: 'uploader#image' #add upload image to posts
   #get 'blog', to: 'posts#index', as: :blog
   #resources :posts
-  
+
   #resources :discover_flights
   resources :messages
   #resources :enrollments
@@ -58,7 +58,7 @@ Rails.application.routes.draw do
   #get 'flexible-pilot-training', to: 'pages#flexible', as: :flexible
   #get 'why-simplifly', to: 'pages#why_simplifly', as: :why_simplifly
   #get 'financing', to: 'pages#financing', as: :financing
-  #get 'pilot-training-pricing-calculator', to: 'pages#cost' 
+  #get 'pilot-training-pricing-calculator', to: 'pages#cost'
   #get 'approximate-pilot-training-costs', to: 'pages#cost', as: :cost
   #get 'timeline-to-be-a-pilot', to: 'pages#timeline', as: :timeline
   #get 'multi-engine-rating', to: 'pages#multi', as: :multi
@@ -69,7 +69,7 @@ Rails.application.routes.draw do
   #get 'airline-pilot-courses', to: 'pages#airline_pilot_courses', as: :airline_pilot_courses
   #get 'pilot-programs', to: 'pages#pilot_programs', as: :programs
   #get 'our-team', to: 'pages#our_team', as: :our_team
-  #get 'terms-of-service-privacy-policy', to: 'pages#tos', as: :tos
+  get 'terms-of-service-privacy-policy', to: 'pages#tos', as: :tos
   #get 'aircraft-rental', to: 'pages#aircraft_rental', as: :aircraft_rental
   #get 'fixed-wing-airplane-fleet', to: 'pages#fixed_wing', as: :fixed_wing
   #get 'rotary-wing-helicopter-fleet', to: 'pages#rotary_wing', as: :rotary_wing
@@ -79,7 +79,7 @@ Rails.application.routes.draw do
   #get 'advanced_training', to: 'pages#advanced_training', as: :advanced_training
   #get 'pilot-resources', to: 'pages#pilot_resources', as: :pilot_resources
   #get 'careers', to: 'pages#careers', as: :careers
-  
+
 
   # Previous Site's Routes
   #get 'home/flight-training', to: 'pages#why_simplifly'
