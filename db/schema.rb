@@ -73,20 +73,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_01_144527) do
     t.string "email"
   end
 
-  create_table "camps", force: :cascade do |t|
-    t.string "attendee_first_name"
-    t.string "attendee_last_name"
-    t.integer "attendee_age"
-    t.string "phone"
-    t.string "email"
-    t.string "parent_first_name"
-    t.string "parent_last_name"
-    t.string "camp_date"
-    t.text "comments"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "checkouts", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -196,45 +182,6 @@ ActiveRecord::Schema[7.0].define(version: 2024_03_01_144527) do
     t.string "learn_style"
     t.string "structure"
     t.text "guidance"
-  end
-
-  create_table "registration_forms", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.string "email"
-    t.string "phone"
-    t.string "street"
-    t.string "city"
-    t.string "state"
-    t.string "zip"
-    t.string "emergency_name"
-    t.string "emergency_phone"
-    t.string "emergency_email"
-    t.string "course"
-    t.integer "hours_planned"
-    t.text "goal"
-    t.string "financed"
-    t.float "total_time"
-    t.string "certificates_held"
-    t.boolean "committed"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.text "availability"
-    t.text "time_details"
-  end
-
-  create_table "reimbursements", force: :cascade do |t|
-    t.string "first_name"
-    t.string "last_name"
-    t.date "entry_date"
-    t.string "amount"
-    t.string "preferred_payment"
-    t.string "username"
-    t.string "upload"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "status"
-    t.string "email"
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
