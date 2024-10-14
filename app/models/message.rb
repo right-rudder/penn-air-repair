@@ -1,14 +1,32 @@
 class Message < ApplicationRecord
   before_validation :strip_phone_number
   #after_save :to_lacrm
-  
+  after_save :to_ghl
+
   validates :name, presence: true
   validates :body, presence: { message: "Tell us how we can help" }
   validates :phone, presence: true, format: { with: /\A\d{10}\z/, message: "must be a valid 10-digit phone number" }
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP, message: "must be a valid email address" }
+  validates :make, presence: true
+  validates :model, presence: true
+  validates :n_nummber, presence: true
 
   def strip_phone_number
     self.phone = phone.to_s.gsub(/[-() ]/, "")
+  end
+
+  def to_ghl
+    ghl_url = ENV['ghl_contact_url']
+    ghl_payload = {
+      "Name" =>  "#{self.name}",
+      "email" => "#{self.email}",
+      "phone" => "#{self.phone}",
+      "message" => "#{self.body}",
+      "aircraft-make" => "#{self.make}",
+      "aircraft-model" => "#{self.model}",
+      "aircraft-n-number" => "#{self.n_nummber}"
+    }
+    HTTParty.post(ghl_url, body: ghl_payload.to_json, headers: { "Content-Type" => "application/json" })
   end
 
   def to_lacrm
@@ -46,11 +64,11 @@ class Message < ApplicationRecord
     }
 
 
-    
+
 
     response = HTTParty.post(endpoint, headers: headers, body: contact_payload.to_json)
     contact_id = JSON.parse(response.body)['ContactId']
-    
+
     # DO I REALLY NEED TO SAVE THIS INTO THE DB??
     #if response.code == 200
     #  # API Contact created successfully
@@ -61,18 +79,18 @@ class Message < ApplicationRecord
     #self.lacrm_response_code = response.code
     #self.lacrm_response_body = response.body
 
-    
+
 
     # Add a note
     note_payload = {
       "Function" => "CreateNote",
       "Parameters" => {
-    #    "ContactId" => "#{self.lacrm_contact_id}", #removed bc we're not saving that value into DB. 
+    #    "ContactId" => "#{self.lacrm_contact_id}", #removed bc we're not saving that value into DB.
         "ContactId" => contact_id,
         "Note" => "#{self.body}",
       }
     }
     HTTParty.post(endpoint, headers: headers, body: note_payload.to_json)
 
-  end  
+  end
 end
